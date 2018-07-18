@@ -28,13 +28,13 @@ public class StudentController {
 		return studentDAO.findByName(studentName);
 	}
 	@RequestMapping(value="/ageGroup/{agelimit}")
-	public String groupByAge(@PathVariable(name="agelimit") Integer ageLimit) {		
+	public List<Student> groupByAge(@PathVariable(name="agelimit") Integer ageLimit) {		
 		List<Student> resultSet = (List<Student>) studentDAO.findByAge(ageLimit);
-		String result = "Student Details : ";
+/*		String result = "Student Details : ";
 		for (Student student : resultSet) {
 			result += "<br> ID : " + student.getId() + " Name : "+student.getName() + " Age: "+student.getAge() + "<br>";
 		}
-		return result;		
+*/		return resultSet;		
 	}	
 	@RequestMapping(value="/displayAll")
 	public String diplayAll(Integer ageLimit) {		
